@@ -181,210 +181,46 @@ h1 {
 .bunny-wrap {
   position: absolute;
   left: 50%;
-  top: 7.4rem;
+  top: 2.2rem;
   transform: translateX(-50%);
-  width: 18rem;
-  height: 18rem;
+  width: 27rem;
+  height: 27rem;
 }
 
 .bunny {
   position: relative;
   width: 100%;
   height: 100%;
-  transform: rotate(-4deg);
   transition: transform 180ms ease;
 }
 
 .bunny.is-eating {
-  transform: rotate(-4deg) translateY(6px);
+  transform: translateY(6px);
 }
 
-.ear,
-.body,
-.head,
-.paw,
-.muzzle {
-  position: absolute;
-}
-
-.ear {
-  top: 0.1rem;
-  width: 2.5rem;
-  height: 7rem;
-  border-radius: 999px;
-  background: #1f1d1f;
-}
-
-.ear::after {
-  content: "";
-  position: absolute;
-  left: 0.65rem;
-  top: 0.8rem;
-  width: 1.2rem;
-  height: 4.6rem;
-  border-radius: 999px;
-  background: #f2c7d6;
-}
-
-.ear-left {
-  left: 4.5rem;
-  transform: rotate(-10deg);
-}
-
-.ear-right {
-  right: 4.8rem;
-  transform: rotate(10deg);
-}
-
-.body {
-  left: 3rem;
-  bottom: 1rem;
-  width: 12rem;
-  height: 11rem;
-  border-radius: 48% 48% 45% 45%;
-  background: #232022;
-}
-
-.head {
-  left: 4.5rem;
-  top: 3.8rem;
-  width: 9rem;
-  height: 8rem;
-  border-radius: 50%;
-  background: #232022;
-}
-
-.muzzle {
-  left: 2.15rem;
-  bottom: 0.8rem;
-  width: 4.8rem;
-  height: 3.9rem;
-  border-radius: 50%;
-  background: #fbf3ee;
-}
-
-.eye {
-  position: absolute;
-  top: 2.7rem;
-  width: 0.58rem;
-  height: 0.58rem;
-  border-radius: 50%;
-  background: #111111;
-}
-
-.eye-left {
-  left: 2.35rem;
-}
-
-.eye-right {
-  right: 2.35rem;
-}
-
-.cheek {
-  position: absolute;
-  top: 3.4rem;
-  width: 0.9rem;
-  height: 0.7rem;
-  border-radius: 50%;
-  background: #d8889b;
-}
-
-.cheek-left {
-  left: 1.6rem;
-}
-
-.cheek-right {
-  right: 1.6rem;
-}
-
-.nose {
-  position: absolute;
-  left: 50%;
-  top: 0.85rem;
-  width: 0.62rem;
-  height: 0.5rem;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  background: #f0d0da;
-}
-
-.mouth {
-  position: absolute;
-  left: 50%;
-  top: 1.5rem;
-  width: 1.35rem;
-  height: 0.7rem;
-  transform: translateX(-50%);
-  border-bottom: 2px solid #c398a6;
-  border-radius: 0 0 999px 999px;
-}
-
-.whiskers {
-  position: absolute;
-  top: 4.15rem;
-  width: 2rem;
-  height: 1.1rem;
-}
-
-.whiskers::before,
-.whiskers::after {
-  content: "";
-  position: absolute;
-  left: 0;
+.bunny-art {
+  display: block;
   width: 100%;
-  border-top: 2px solid rgba(245, 237, 233, 0.82);
-}
-
-.whiskers::before {
-  top: 0.1rem;
-}
-
-.whiskers::after {
-  top: 0.7rem;
-}
-
-.whiskers-left {
-  left: 0.4rem;
-  transform: rotate(8deg);
-}
-
-.whiskers-right {
-  right: 0.4rem;
-  transform: scaleX(-1) rotate(8deg);
-}
-
-.paw {
-  bottom: 0.45rem;
-  width: 2.4rem;
-  height: 1.25rem;
-  border-radius: 999px;
-  background: #232022;
-}
-
-.paw-left {
-  left: 4.2rem;
-  transform: rotate(14deg);
-}
-
-.paw-right {
-  right: 4.2rem;
-  transform: rotate(-14deg);
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .mouth-zone {
   position: absolute;
-  left: 50%;
-  top: 7.85rem;
-  width: 4.8rem;
-  height: 3rem;
-  transform: translateX(-50%);
+  left: 61.6%;
+  top: 52.1%;
+  width: 14%;
+  height: 9%;
+  transform: translate(-50%, -50%);
   border-radius: 999px;
   border: none;
   background: transparent;
 }
 
 .mouth-zone.is-over {
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
 }
 
 .table {
@@ -440,8 +276,8 @@ h1 {
 
 .food-piece {
   position: absolute;
-  width: 78px;
-  height: 78px;
+  width: 92px;
+  height: 92px;
   display: grid;
   place-items: center;
   border: none;
@@ -660,9 +496,9 @@ h1 {
   }
 
   .bunny-wrap {
-    top: 8.3rem;
-    width: 15rem;
-    height: 15rem;
+    top: 4.2rem;
+    width: 21rem;
+    height: 21rem;
   }
 
   .table {
@@ -685,8 +521,8 @@ h1 {
   }
 
   .food-piece {
-    width: 66px;
-    height: 66px;
+    width: 76px;
+    height: 76px;
   }
 
   .diet-note {
