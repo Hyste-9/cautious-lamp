@@ -241,6 +241,46 @@ function pointInPlate(clientX, clientY) {
   return dx * dx + dy * dy <= 1;
 }
 
+function plateLocalToScene(leftInPlate, topInPlate, pieceWidth, pieceHeight) {
+  const sceneRect = sceneEl.getBoundingClientRect();
+  const plateRect = plateEl.getBoundingClientRect();
+  return {
+    left: plateRect.left - sceneRect.left + leftInPlate,
+    top: plateRect.top - sceneRect.top + topInPlate
+  };
+}
+
+function choosePlateLanding(clientX, clientY, pieceWidth, pieceHeight) {
+  const plateRect = plateEl.getBoundingClientRect();
+  const centerX = plateRect.left + plateRect.width / 2;
+  const centerY = plateRect.top + plateRect.height / 2;
+  const rx = plateRect.width / 2 - pieceWidth * 0.45;
+  const ry = plateRect.height / 2 - pieceHeight * 0.45;
+
+  let dx = clientX - centerX;
+  let dy = clientY - centerY;
+
+  if (dy < -ry) dy = -ry;
+
+  const ellipseValue = (dx * dx) / (rx * rx) + (dy * dy) / (ry * ry);
+  if (ellipseValue > 1) {
+    const scale = Math.sqrt(ellipseValue);
+    dx /= scale;
+    dy /= scale;
+  }
+
+  const topInset = 12;
+  const leftInPlate = plateRect.width / 2 + dx - pieceWidth / 2;
+  const topInPlate = Math.max(topInset, plateRect.height / 2 + dy - pieceHeight / 2);
+
+  return {
+    leftInPlate,
+    topInPlate,
+    leftPercent: (leftInPlate / plateRect.width) * 100,
+    topPercent: (topInPlate / plateRect.height) * 100
+  };
+}
+
 function spawnPuff(clientX, clientY) {
   const sceneRect = sceneEl.getBoundingClientRect();
   const puff = document.createElement("div");
@@ -263,6 +303,12 @@ function restorePieceToPlate(piece) {
   if (piece.parentElement !== plateEl) {
     plateEl.appendChild(piece);
   }
+}
+
+function placePieceOnPlate(piece, landing) {
+  restorePieceToPlate(piece);
+  piece.style.left = `${landing.leftPercent}%`;
+  piece.style.top = `${landing.topPercent}%`;
 }
 
 function animatePieceTo(piece, targetLeft, targetTop, onDone) {
@@ -295,12 +341,13 @@ function endDrag(clientX, clientY) {
   const mouthRect = mouthZone.getBoundingClientRect();
   const hitMouth = pointInRect(clientX, clientY, mouthRect);
   const hitPlate = pointInPlate(clientX, clientY);
+  const sceneRect = sceneEl.getBoundingClientRect();
+  const releasedInScene = pointInRect(clientX, clientY, sceneRect);
 
   mouthZone.classList.remove("is-over");
   hideHoverCard();
 
   if (hitMouth) {
-    const sceneRect = sceneEl.getBoundingClientRect();
     const targetLeft = mouthRect.left - sceneRect.left + mouthRect.width / 2 - piece.offsetWidth / 2;
     const targetTop = mouthRect.top - sceneRect.top + mouthRect.height / 2 - piece.offsetHeight / 2;
     animatePieceTo(piece, targetLeft, targetTop, () => {
@@ -308,10 +355,12 @@ function endDrag(clientX, clientY) {
       restorePieceToPlate(piece);
       feedBunny(piece.dataset.food);
     });
-  } else if (hitPlate) {
-    animatePieceTo(piece, homeLeft, homeTop, () => {
+  } else if (hitPlate || releasedInScene) {
+    const landing = choosePlateLanding(clientX, clientY, piece.offsetWidth, piece.offsetHeight);
+    const target = plateLocalToScene(landing.leftInPlate, landing.topInPlate, piece.offsetWidth, piece.offsetHeight);
+    animatePieceTo(piece, target.left, target.top, () => {
       cleanupPiece(piece);
-      restorePieceToPlate(piece);
+      placePieceOnPlate(piece, landing);
     });
   } else {
     spawnPuff(clientX, clientY);
