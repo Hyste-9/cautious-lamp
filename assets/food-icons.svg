@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="hay" viewBox="0 0 120 90">
+    <rect x="12" y="28" width="96" height="42" rx="14" fill="#f4d57b"/>
+    <rect x="45" y="24" width="30" height="50" rx="8" fill="#cb9960"/>
+    <path d="M24 55 36 26M38 64 48 24M58 68 60 20M76 65 88 26M92 58 102 32" stroke="#dcae47" stroke-width="5" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="romaine" viewBox="0 0 120 90">
+    <path d="M60 78C34 78 20 56 24 36c3-16 18-26 36-24 18-2 33 8 36 24 4 20-10 42-36 42Z" fill="#92d86c"/>
+    <path d="M60 76C48 60 44 40 48 16" stroke="#dff6c8" stroke-width="6" stroke-linecap="round"/>
+    <path d="M42 54c8-8 18-14 34-18M40 40c12-4 24-5 38-4" stroke="#6eb64f" stroke-width="4" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="cilantro" viewBox="0 0 120 90">
+    <circle cx="42" cy="34" r="14" fill="#77c76f"/>
+    <circle cx="62" cy="26" r="14" fill="#6bbe65"/>
+    <circle cx="79" cy="38" r="14" fill="#77c76f"/>
+    <circle cx="58" cy="48" r="15" fill="#8adb7e"/>
+    <path d="M58 74c0-16 2-25 4-35" stroke="#62a54d" stroke-width="5" stroke-linecap="round"/>
+    <path d="M60 58 34 44M60 55 84 45" stroke="#62a54d" stroke-width="4" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="parsley" viewBox="0 0 120 90">
+    <path d="M35 50c-10-8-9-24 6-28 8-12 27-13 35-2 16-3 26 15 15 28 2 15-15 26-29 20-10 8-25 3-27-12Z" fill="#4fae54"/>
+    <path d="M60 74c-1-17 0-28 2-40" stroke="#78c86f" stroke-width="5" stroke-linecap="round"/>
+    <path d="M60 53 40 43M61 48 83 40M61 58 76 54" stroke="#78c86f" stroke-width="4" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="pellets" viewBox="0 0 120 90">
+    <ellipse cx="35" cy="48" rx="15" ry="12" fill="#9f7756"/>
+    <ellipse cx="58" cy="38" rx="15" ry="12" fill="#8a6547"/>
+    <ellipse cx="78" cy="52" rx="15" ry="12" fill="#a77f60"/>
+    <ellipse cx="55" cy="60" rx="15" ry="12" fill="#7e5a3f"/>
+  </symbol>
+  <symbol id="strawberry" viewBox="0 0 120 90">
+    <path d="M60 76c-18 0-28-15-28-30 0-14 10-24 28-24s28 10 28 24c0 15-10 30-28 30Z" fill="#e85167"/>
+    <path d="M60 22c-9 0-16-7-16-10 6 4 11 3 16-2 5 5 10 6 16 2 0 3-7 10-16 10Z" fill="#67b85e"/>
+    <g fill="#ffd87b">
+      <circle cx="48" cy="38" r="2.5"/><circle cx="68" cy="38" r="2.5"/><circle cx="58" cy="48" r="2.5"/>
+      <circle cx="44" cy="54" r="2.5"/><circle cx="72" cy="54" r="2.5"/><circle cx="58" cy="62" r="2.5"/>
+    </g>
+  </symbol>
+  <symbol id="blueberry" viewBox="0 0 120 90">
+    <circle cx="44" cy="50" r="18" fill="#5973d7"/>
+    <circle cx="66" cy="38" r="18" fill="#6f85e8"/>
+    <circle cx="78" cy="56" r="18" fill="#4f66c9"/>
+    <circle cx="38" cy="44" r="4" fill="#cbd7ff"/>
+    <circle cx="60" cy="32" r="4" fill="#d7e0ff"/>
+    <circle cx="72" cy="50" r="4" fill="#c9d4ff"/>
+  </symbol>
+  <symbol id="banana" viewBox="0 0 120 90">
+    <path d="M26 58c7 13 30 20 49 12 14-6 23-18 27-31 3 6 2 14-1 20-7 15-22 27-40 29-18 2-32-6-39-17-3-5-4-10-3-13 2 0 4 0 7 0Z" fill="#f7d96f"/>
+    <path d="M31 58c10 5 25 6 41 0 12-4 20-11 25-21" stroke="#e8b74d" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="97" cy="37" r="4" fill="#8f6a3f"/>
+    <circle cx="25" cy="57" r="4" fill="#8f6a3f"/>
+  </symbol>
+</svg>

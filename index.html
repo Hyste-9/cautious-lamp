@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bunny Buffet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800&family=Fredoka:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="intro">
+      <p class="eyebrow">Cozy Bunny Diet Game</p>
+      <h1>Bunny Buffet</h1>
+      <p class="lede">Drag food from the plate to the bunny's mouth. You only get six feeds, so keep the diet mostly hay, a little leafy greens, and only tiny pellets or fruit treats.</p>
+    </section>
+
+    <section class="game-panel">
+      <div class="topline">
+        <div class="diet-note">
+          <strong>Healthy Bunny Diet</strong>
+          <span>Hay 80-90%</span>
+          <span>Greens 10-15%</span>
+          <span>Pellets + fruit tiny</span>
+        </div>
+
+        <div class="status-line">
+          <span class="status-pill">Feeds left: <strong id="feeds-left">6</strong></span>
+          <span class="status-pill">Mood: <strong id="mood">Hopeful</strong></span>
+        </div>
+      </div>
+
+      <section class="scene" aria-label="Bunny feeding scene">
+        <div class="cloud cloud-a"></div>
+        <div class="cloud cloud-b"></div>
+        <div class="sun"></div>
+
+        <div class="bunny-wrap">
+          <div class="bunny" id="bunny">
+            <div class="ear ear-left"></div>
+            <div class="ear ear-right"></div>
+            <div class="body"></div>
+            <div class="head">
+              <div class="eye eye-left"></div>
+              <div class="eye eye-right"></div>
+              <div class="cheek cheek-left"></div>
+              <div class="cheek cheek-right"></div>
+              <div class="muzzle">
+                <div class="nose"></div>
+                <div class="mouth"></div>
+              </div>
+              <div class="whiskers whiskers-left"></div>
+              <div class="whiskers whiskers-right"></div>
+            </div>
+            <div class="paw paw-left"></div>
+            <div class="paw paw-right"></div>
+            <div class="mouth-zone" id="mouth-zone" aria-label="Drop food on the bunny mouth" tabindex="0"></div>
+          </div>
+        </div>
+
+        <div class="table">
+          <div class="table-top"></div>
+          <div class="table-skirt"></div>
+
+          <div class="plate" id="plate">
+            <div class="plate-rim"></div>
+
+            <div class="food-piece hay" data-food="hay" draggable="true" tabindex="0" role="button" aria-label="Hay bundle">
+              <svg viewBox="0 0 100 80" aria-hidden="true">
+                <rect x="14" y="22" width="72" height="34" rx="12" fill="#f4d57b"/>
+                <rect x="42" y="18" width="16" height="40" rx="6" fill="#c7925d"/>
+                <path d="M24 44 34 20M34 50 44 18M51 52 52 16M63 50 74 20M74 44 82 24" stroke="#dfb24e" stroke-width="4" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <div class="food-piece romaine" data-food="romaine" draggable="true" tabindex="0" role="button" aria-label="Romaine lettuce">
+              <svg viewBox="0 0 100 80" aria-hidden="true">
+                <path d="M50 70C30 70 18 53 21 37c3-12 15-21 29-20 14-1 26 8 29 20 3 16-9 33-29 33Z" fill="#8fd76d"/>
+                <path d="M50 68C42 56 39 39 41 18" stroke="#e4f6cd" stroke-width="5" stroke-linecap="round"/>
+                <path d="M37 50c7-7 15-11 27-14M37 39c8-3 18-4 29-3" stroke="#65b34b" stroke-width="3.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <div class="food-piece cilantro" data-food="cilantro" draggable="true" tabindex="0" role="button" aria-label="Cilantro">
+              <svg viewBox="0 0 100 80" aria-hidden="true">
+                <circle cx="34" cy="30" r="11" fill="#79c86c"/>
+                <circle cx="50" cy="23" r="11" fill="#6bbb62"/>
+                <circle cx="65" cy="33" r="11" fill="#7bcd70"/>
+                <circle cx="49" cy="43" r="12" fill="#8cdd80"/>
+                <path d="M49 66c0-13 2-21 4-29" stroke="#5ea34b" stroke-width="4" stroke-linecap="round"/>
+                <path d="M51 53 31 39M51 50 70 40" stroke="#5ea34b" stroke-width="3.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <div class="food-piece parsley" data-food="parsley" draggable="true" tabindex="0" role="button" aria-label="Parsley">
+              <svg viewBox="0 0 100 80" aria-hidden="true">
+                <path d="M31 42c-8-6-7-19 5-22 6-10 20-10 28-2 12-2 20 12 11 22 2 12-11 21-23 16-8 6-20 2-21-14Z" fill="#53ae55"/>
+                <path d="M50 66c0-14 1-23 2-32" stroke="#7ccc72" stroke-width="4" stroke-linecap="round"/>
+                <path d="M50 48 34 40M52 44 68 37M52 52 63 49" stroke="#7ccc72" stroke-width="3.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <div class="food-piece pellets" data-food="pellets" draggable="true" tabindex="0" role="button" aria-label="Pellets">
+              <svg viewBox="0 0 100 80" aria-hidden="true">
+                <ellipse cx="32" cy="42" rx="12" ry="9" fill="#9e7654"/>
+                <ellipse cx="50" cy="34" rx="12" ry="9" fill="#886346"/>
+                <ellipse cx="66" cy="45" rx="12" ry="9" fill="#a88363"/>
+                <ellipse cx="46" cy="53" rx="12" ry="9" fill="#7a583e"/>
+              </svg>
+            </div>
+
+            <div class="food-piece strawberry" data-food="strawberry" draggable="true" tabindex="0" role="button" aria-label="Strawberry">
+              <svg viewBox="0 0 100 80" aria-hidden="true">
+                <path d="M50 66c-14 0-22-12-22-25 0-11 8-20 22-20s22 9 22 20c0 13-8 25-22 25Z" fill="#e94d67"/>
+                <path d="M50 20c-7 0-12-5-12-8 5 3 8 3 12-1 4 4 7 4 12 1 0 3-5 8-12 8Z" fill="#69b85d"/>
+                <g fill="#ffd87c">
+                  <circle cx="41" cy="35" r="2"/><circle cx="57" cy="35" r="2"/><circle cx="49" cy="43" r="2"/>
+                  <circle cx="38" cy="49" r="2"/><circle cx="60" cy="49" r="2"/><circle cx="49" cy="56" r="2"/>
+                </g>
+              </svg>
+            </div>
+
+            <div class="food-piece blueberries" data-food="blueberry" draggable="true" tabindex="0" role="button" aria-label="Blueberries">
+              <svg viewBox="0 0 100 80" aria-hidden="true">
+                <circle cx="36" cy="45" r="13" fill="#6178dd"/>
+                <circle cx="53" cy="33" r="13" fill="#7490ef"/>
+                <circle cx="67" cy="47" r="13" fill="#4e67c9"/>
+                <circle cx="32" cy="40" r="3" fill="#dde6ff"/>
+                <circle cx="49" cy="29" r="3" fill="#dde6ff"/>
+                <circle cx="63" cy="42" r="3" fill="#dde6ff"/>
+              </svg>
+            </div>
+
+            <div class="food-piece banana" data-food="banana" draggable="true" tabindex="0" role="button" aria-label="Banana slice">
+              <svg viewBox="0 0 100 80" aria-hidden="true">
+                <path d="M24 48c6 11 24 17 40 10 11-5 18-14 21-24 3 5 2 11-1 16-6 13-18 23-33 25-15 2-27-5-32-14-3-4-4-8-3-10 2 0 4 0 8-1Z" fill="#f6db76"/>
+                <path d="M29 48c8 4 20 5 33 0 10-4 17-10 20-18" stroke="#e8ba4c" stroke-width="4" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="stats-line">
+        <span class="diet-chip hay">Hay <strong id="hay-percent">0%</strong></span>
+        <span class="diet-chip greens">Greens <strong id="greens-percent">0%</strong></span>
+        <span class="diet-chip pellets">Pellets <strong id="pellet-percent">0%</strong></span>
+        <span class="diet-chip treats">Fruit <strong id="treat-percent">0%</strong></span>
+      </div>
+
+      <div class="message" id="message">
+        <h2>Drag food from the plate to the bunny's mouth.</h2>
+        <p>You only get six feeds, so a healthy balance matters.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
